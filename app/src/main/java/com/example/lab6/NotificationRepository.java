@@ -24,14 +24,10 @@ public class NotificationRepository {
     }
 
     public void refreshItems() {
-        Log.i("Repository", "Refresh function invoked");
         NotificationDatabase.databaseWriteExecutor.execute(() -> {
             List<NotificationEntity> list = localDao.getAll();
-            Log.i("Repository", "list В базе данных " + list.size());
             _items.postValue(list);
         });
-
-        Log.i("Repository", "_items В базе данных "+_items.getValue().size());
     }
 
     public void add(NotificationEntity notification) {

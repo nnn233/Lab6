@@ -21,7 +21,6 @@ public class MainActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        Log.i("MainActivity", "On Create invoked");
         setContentView(R.layout.activity_main);
 
         button = findViewById(R.id.creating_btn);
@@ -44,7 +43,6 @@ public class MainActivity extends AppCompatActivity {
         app.getRepository().getItems().observe(this, items -> {
             if (items.size() != 0) {
                 adapter.setNotifications((ArrayList<NotificationEntity>) items);
-                Log.i("MainActivity", "items В базе данных " + items.size());
             }
         });
     }
